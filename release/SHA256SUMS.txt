@@ -1,0 +1,5 @@
+475d534402a8232fe337eba83b9c6feb471adc7e0172f580fdc00997d0f45e18  LocalScribe_1.0.3_app-base.tar.gz
+e560024865431438e1a1466231ddd4ceba23133d1499e1b6b3e28c637c2ff136  LocalScribe_1.0.3_python-runtime.tar.gz
+ce88d1325a52453f0911530a4e027ec68ea50bcdcb442c9939efeaa4d03918ff  LocalScribe_1.0.3_modelscope.tar.gz
+d3d8c5bfa324525ebf9b57896046bec8443ab970dba5acad084e53975c3a4abb  LocalScribe_1.0.3_huggingface.tar.gz.part-aa
+7a8f35773fa8dd5785277a39c536b0ac97d4c8df1dac309b55e053e78075778c  LocalScribe_1.0.3_huggingface.tar.gz.part-ab

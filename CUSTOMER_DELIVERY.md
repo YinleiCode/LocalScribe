@@ -25,17 +25,26 @@ cd LocalScribe
 
 ## 安装 App
 
-1. 在仓库的 Releases 页面下载同一版本的全部 `part-*` 文件及 `SHA256SUMS.txt`。
-2. 在下载目录执行：
+1. 在仓库的 Releases 页面下载以下全部文件：
+
+   - `LocalScribe_1.0.3_app-base.tar.gz`
+   - `LocalScribe_1.0.3_python-runtime.tar.gz`
+   - `LocalScribe_1.0.3_modelscope.tar.gz`
+   - `LocalScribe_1.0.3_huggingface.tar.gz.part-aa`
+   - `LocalScribe_1.0.3_huggingface.tar.gz.part-ab`
+   - `LocalScribe_1.0.3_install-tools.zip`
+
+2. 解压 `LocalScribe_1.0.3_install-tools.zip`，把解压出的文件夹放到上述五个组件所在的同一目录。
+3. 打开终端，在下载目录执行：
 
 ```bash
-shasum -a 256 -c SHA256SUMS.txt
-cat LocalScribe_1.0.3_macOS_AppleSilicon.tar.gz.part-* > LocalScribe_1.0.3_macOS_AppleSilicon.tar.gz
-tar -xzf LocalScribe_1.0.3_macOS_AppleSilicon.tar.gz
+chmod +x LocalScribe_1.0.3_install/install_LocalScribe_1.0.3.command
+./LocalScribe_1.0.3_install/install_LocalScribe_1.0.3.command
 ```
 
-3. 将 `LocalScribe.app` 移到“应用程序”文件夹。
-4. 首次启动时在 Finder 中右键点击 App，选择“打开”。
+4. 脚本会先验证全部 SHA-256，再还原并验证 `LocalScribe.app` 的代码签名。
+5. 将生成的 `LocalScribe_1.0.3/LocalScribe.app` 移到“应用程序”文件夹。
+6. 首次启动时在 Finder 中右键点击 App，选择“打开”。
 
 App 已包含离线转写和说话人处理所需的本地运行环境及模型，正常使用不依赖外部大模型 API。
 
