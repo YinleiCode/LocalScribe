@@ -1,0 +1,1 @@
+"""Article translators for LocalScribe."""

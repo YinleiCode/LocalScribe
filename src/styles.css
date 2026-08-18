@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --vsc-line-h: 22px;
+  }
+  html, body, #root {
+    @apply h-full m-0;
+    overflow: hidden; /* 由内部 panes 管理 scroll */
+    overflow-wrap: anywhere;
+  }
+  body {
+    @apply bg-editor text-fg font-sans antialiased text-ui;
+  }
+  /* 选中文字颜色 */
+  ::selection {
+    background: rgba(0, 127, 212, 0.4);
+  }
+}
+
+@layer components {
+  /* === 按钮 === */
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5 px-3 h-7 rounded-sm text-ui font-medium
+           bg-accent text-white hover:bg-accent-hover
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-colors;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-1.5 px-3 h-7 rounded-sm text-ui font-medium
+           bg-accent text-white hover:bg-accent-hover
+           transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-1.5 px-2.5 h-6 rounded-sm text-ui-sm
+           bg-transparent text-fg-dim hover:bg-hover hover:text-fg
+           transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-tab {
+    @apply inline-flex items-center gap-1.5 px-3 h-9 text-ui
+           bg-transparent text-fg-dim hover:text-fg
+           border-b-2 border-transparent transition-colors;
+  }
+  .btn-tab-active {
+    @apply text-fg border-accent;
+  }
+
+  /* === 面板 === */
+  .pane {
+    @apply bg-sidebar border-r border-border;
+  }
+  .pane-section {
+    @apply border-b border-border/60;
+  }
+  .pane-section-header {
+    @apply flex items-center justify-between px-3 h-7 text-ui-sm text-fg-dim uppercase tracking-wide
+           hover:text-fg select-none;
+  }
+
+  /* === 输入 === */
+  .input, .select, .textarea {
+    @apply bg-input border border-border rounded-sm px-2 h-6 text-ui text-fg
+           focus:outline-none focus:border-accent;
+  }
+  .textarea {
+    @apply h-auto py-1.5 font-mono leading-relaxed;
+  }
+
+  /* === 列表项(VSCode 侧栏条目风格) === */
+  .list-item {
+    @apply flex items-start gap-2 px-3 py-1.5 cursor-pointer
+           hover:bg-hover transition-colors text-ui;
+  }
+  .list-item-active {
+    @apply bg-selected text-fg
+           shadow-[inset_2px_0_0_0_theme(colors.accent.DEFAULT)];
+  }
+  .transcript-cue-button,
+  .transcript-cue-button:focus,
+  .transcript-cue-button:focus-visible {
+    outline: none !important;
+    box-shadow: none;
+  }
+}
+
+/* === Scrollbar (VSCode 风格) === */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(121, 121, 121, 0.4);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 100, 100, 0.7);
+  background-clip: content-box;
+}
+::-webkit-scrollbar-corner { background: transparent; }

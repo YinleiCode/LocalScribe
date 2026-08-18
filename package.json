@@ -1,0 +1,49 @@
+{
+  "name": "localscribe",
+  "private": true,
+  "version": "1.0.3",
+  "type": "module",
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev": "vite",
+    "web:api": "LOCALSCRIBE_BUNDLED_SITE_PACKAGES=$PWD/src-tauri/bundle-staging/python/lib/python3.12/site-packages .venv/bin/python -m scribe_py.web_server",
+    "web:ui": "vite --host 127.0.0.1",
+    "asr:lock": "python3 scripts/asr_baseline_lock.py --out-dir output/asr_baseline_lock_latest",
+    "diarization:metrics": "python3 scripts/diarization_metrics.py",
+    "diarization:baseline": "python3 scripts/diarization_baseline_report.py",
+    "diarization:sparse-score": "python3 scripts/diarization_sparse_score.py",
+    "voiceprint:report": "python3 scripts/voiceprint_reidentify_report.py",
+    "test:transcript-sync": "node --experimental-strip-types --test scripts/transcript_sync.test.ts",
+    "test:article-speaker-groups": "node --experimental-strip-types --test scripts/article_speaker_groups.test.ts",
+    "test:voiceprint-anchor-quality": "node --experimental-strip-types --test scripts/voiceprint_anchor_quality.test.ts",
+    "test:diarization-partition": "node --experimental-strip-types --test scripts/diarization_partition.test.ts",
+    "test:speaker-metadata": "node --experimental-strip-types --test scripts/speaker_metadata.test.ts",
+    "test:package-offline-asr": "python3 -m unittest scripts/test_offline_asr_bundle.py",
+    "package:preflight": "python3 scripts/offline_asr_bundle.py verify --resources src-tauri/bundle-staging --check-hash",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2",
+    "@tauri-apps/plugin-dialog": "^2",
+    "@tauri-apps/plugin-fs": "^2",
+    "@tauri-apps/plugin-shell": "^2",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.14.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^5.0.12"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.12",
+    "tailwindcss": "^3",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.1"
+  }
+}
